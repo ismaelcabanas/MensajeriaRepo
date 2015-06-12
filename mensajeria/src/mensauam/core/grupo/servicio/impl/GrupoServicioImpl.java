@@ -1,6 +1,7 @@
 package mensauam.core.grupo.servicio.impl;
 
 import mensauam.core.grupo.GrupoAlumno;
+import mensauam.core.grupo.GrupoEstudio;
 import mensauam.core.grupo.servicio.api.GrupoServicio;
 import mensauam.core.usuario.Usuario;
 
@@ -27,6 +28,17 @@ public class GrupoServicioImpl implements GrupoServicio{
 		
 		return grupo;
 		
+	}
+
+	@Override
+	public GrupoEstudio crear(String nombreGrupo, String pregunta,
+			Usuario creador) {
+		
+		GrupoEstudio grupo = new GrupoEstudio(nombreGrupo, pregunta, creador);
+		
+		return grupo;
+		
 	}		
 
+	
 }

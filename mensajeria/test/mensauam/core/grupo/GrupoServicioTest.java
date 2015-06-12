@@ -34,4 +34,27 @@ public class GrupoServicioTest {
 		Assert.assertThat(grupoActual.getCreador().getCorreo(), IsEqual.equalTo("test@test.com"));
 		
 	}
+	
+	@Test
+	public void deberia_crear_un_grupo_de_estudio(){
+
+		// GIVEN
+		GrupoServicio servicio = GrupoServicioImpl.getInstance();
+		String nombreGrupo = "grupo_test";
+		String pregunta = "pregunta_test";
+		Usuario creador = new Alumno("test@test.com");
+		
+		// WHEN
+		GrupoEstudio grupoActual = servicio.crear(nombreGrupo, pregunta, creador);
+		
+		// THEN
+		Assert.assertNotNull(grupoActual);
+		Assert.assertThat(grupoActual.getNombre(), IsEqual.equalTo("grupo_test"));
+		Assert.assertThat(grupoActual.getPregunta(), IsEqual.equalTo("pregunta_test"));
+		Assert.assertThat(grupoActual.isEsPrivado(), IsEqual.equalTo(true));
+		Assert.assertThat(grupoActual.isEsModerado(), IsEqual.equalTo(true));
+		Assert.assertThat(grupoActual.getCreador(), IsNull.notNullValue());
+		Assert.assertThat(grupoActual.getCreador().getCorreo(), IsEqual.equalTo("test@test.com"));
+		
+	}
 }

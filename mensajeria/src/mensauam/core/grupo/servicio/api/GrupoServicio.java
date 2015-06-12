@@ -1,6 +1,7 @@
 package mensauam.core.grupo.servicio.api;
 
 import mensauam.core.grupo.GrupoAlumno;
+import mensauam.core.grupo.GrupoEstudio;
 import mensauam.core.usuario.Usuario;
 
 /**
@@ -12,5 +13,7 @@ public interface GrupoServicio {
 
 	GrupoAlumno crear(String nombreGrupo, boolean esPrivado, boolean esModerado,
 			Usuario creador);
+
+	GrupoEstudio crear(String nombreGrupo, String pregunta, Usuario creador);
 
 }
